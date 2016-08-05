@@ -18,7 +18,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.camunda.bpm.engine.ProcessEngineConfiguration;
@@ -31,6 +33,7 @@ import org.camunda.bpm.engine.impl.history.event.HistoricProcessInstanceEventEnt
 import org.camunda.bpm.engine.impl.test.PluggableProcessEngineTestCase;
 import org.camunda.bpm.engine.impl.util.ClockUtil;
 import org.camunda.bpm.engine.repository.ProcessDefinition;
+import org.camunda.bpm.engine.runtime.Job;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.test.Deployment;
@@ -40,6 +43,7 @@ import org.camunda.bpm.engine.test.RequiredHistoryLevel;
 /**
  * @author Tom Baeyens
  * @author Joram Barrez
+ * @author Ingo Richtsmeier
  */
 @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_AUDIT)
 public class HistoricProcessInstanceTest extends PluggableProcessEngineTestCase {
@@ -259,6 +263,29 @@ public class HistoricProcessInstanceTest extends PluggableProcessEngineTestCase 
 
     assertEquals(0, historyService.createHistoricProcessInstanceQuery().incidentMessage("Unknown message").count());
     assertEquals(0, historyService.createHistoricProcessInstanceQuery().incidentMessage("Unknown message").list().size());
+  }
+  
+  @Deployment(resources = {"org/camunda/bpm/engine/test/api/mgmt/IncidentTest.testShouldDeleteIncidentAfterJobWasSuccessfully.bpmn"})
+  @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_FULL)
+  public void testHistoricProcessInstanceQueryWithOpenIncidents() {
+    Map<String, Object> parameters = new HashMap<String, Object>();
+    parameters.put("fail", true);
+    ProcessInstance pi1 = runtimeService.startProcessInstanceByKey("failingProcessWithUserTask", parameters);
+    runtimeService.startProcessInstanceByKey("failingProcessWithUserTask", parameters);
+    
+    executeAvailableJobs();
+    
+    assertEquals(2, historyService.createHistoricProcessInstanceQuery().withIncidents().count());
+    assertEquals(2, historyService.createHistoricProcessInstanceQuery().withIncidents().list().size());
+    
+    // set execution variable from "true" to "false"
+    runtimeService.setVariable(pi1.getId(), "fail", new Boolean(false));
+    Job jobToResolve = managementService.createJobQuery().processInstanceId(pi1.getId()).singleResult();
+    managementService.setJobRetries(jobToResolve.getId(), 1);
+    executeAvailableJobs();
+    
+    assertEquals(1, historyService.createHistoricProcessInstanceQuery().withOpenIncidents().count());
+    assertEquals(1, historyService.createHistoricProcessInstanceQuery().withOpenIncidents().list().size());
   }
 
   public void testHistoricProcessInstanceQueryWithIncidentMessageNull() {

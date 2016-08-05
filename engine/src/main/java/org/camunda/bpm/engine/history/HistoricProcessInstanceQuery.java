@@ -28,6 +28,7 @@ import org.camunda.bpm.engine.runtime.ProcessInstanceQuery;
  * @author Tom Baeyens
  * @author Joram Barrez
  * @author Falko Menge
+ * @author Ingo Richtsmeier
  */
 public interface HistoricProcessInstanceQuery extends Query<HistoricProcessInstanceQuery, HistoricProcessInstance> {
 
@@ -85,6 +86,14 @@ public interface HistoricProcessInstanceQuery extends Query<HistoricProcessInsta
    * @return HistoricProcessInstanceQuery
    */
   HistoricProcessInstanceQuery withIncidents();
+
+  /**
+   * Only select historic process instances with open incidents. 
+   * Closed incidents will be skipped.
+   *
+   * @return HistoricProcessInstanceQuery
+   */
+  HistoricProcessInstanceQuery withOpenIncidents();
 
   /**
    * Only select historic process instances with the given incident message.

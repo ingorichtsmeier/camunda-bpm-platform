@@ -33,6 +33,7 @@ import org.camunda.bpm.engine.impl.util.CompareUtil;
  * @author Tom Baeyens
  * @author Falko Menge
  * @author Bernd Ruecker
+ * @author Ingo Richtsmeier
  */
 public class HistoricProcessInstanceQueryImpl extends AbstractVariableQueryImpl<HistoricProcessInstanceQuery, HistoricProcessInstance> implements HistoricProcessInstanceQuery {
 
@@ -46,6 +47,7 @@ public class HistoricProcessInstanceQueryImpl extends AbstractVariableQueryImpl<
   protected boolean finished = false;
   protected boolean unfinished = false;
   protected boolean withIncidents = false;
+  protected boolean withOpenIncidents = false;
   protected String incidentMessage;
   protected String incidentMessageLike;
   protected String startedBy;
@@ -125,6 +127,12 @@ public class HistoricProcessInstanceQueryImpl extends AbstractVariableQueryImpl<
   public HistoricProcessInstanceQuery withIncidents() {
     this.withIncidents = true;
 
+    return this;
+  }
+  
+  public HistoricProcessInstanceQuery withOpenIncidents() {
+    this.withOpenIncidents = true;
+    
     return this;
   }
 
