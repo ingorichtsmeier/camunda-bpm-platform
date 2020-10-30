@@ -13,7 +13,7 @@
       mediaType = "application/json"
       dto = "CorrelationMessageDto"
       examples = ['"example-1": {
-                      "summary": "POST /condition",
+                      "summary": "POST /message (without result)",
                       "description": "Correlate without result",
                       "value": {
                         "messageName" : "aMessage",
@@ -30,7 +30,7 @@
                       }
                      },
                    "example-2": {
-                      "summary": "POST /condition",
+                      "summary": "POST /message (with result)",
                       "description": "Correlate with result",
                       "value": {
                         "messageName" : "aMessage",
@@ -48,7 +48,7 @@
                       }
                      },
                    "example-3": {
-                      "summary": "POST /condition",
+                      "summary": "POST /message (with result and variables)",
                       "description": "Correlate with result and variables",
                       "value": {
                         "messageName" : "aMessage",
@@ -75,10 +75,10 @@
         dto = "MessageCorrelationResultWithVariableDto"
         array = true
         desc = "Request successful. The property `resultEnabled` in the request body was `true`.
-                The `variables` property is only returned, if the property variablesInResultEnable`
+                The `variables` property is only returned, if the property `variablesInResultEnable`
                 was set to `true` in the request."
       examples = ['"example-1": {
-                       "summary": "Status 200 Response.",
+                       "summary": "Status 200 Response with result.",
                        "description": "The Response content of a status 200. The property `variablesInResultEnabled` in the request body was `false` (Default).",
                        "value": [{
                          "resultType": "ProcessDefinition",
@@ -96,7 +96,7 @@
                     }]
                    },
                    "example-2": {
-                     "summary": "Status 200 Response.",
+                     "summary": "Status 200 Response with variables.",
                      "description": "The Response content of a status 200. The property `variablesInResultEnabled` in the request body was `true`.",
                      "value": [{
                        "resultType": "Execution",
