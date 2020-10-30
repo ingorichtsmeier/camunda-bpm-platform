@@ -67,7 +67,7 @@
                 See the [Introduction](${docsUrl}/reference/rest/overview/#parse-exceptions) for
                 the error response format."
         examples = ['"example-1": {
-                   "summary": "GET /deployment?name=deploymentName",
+                   "summary": "Failed deployment",
                    "value": [
                      {
                        "type": "ParseException",
