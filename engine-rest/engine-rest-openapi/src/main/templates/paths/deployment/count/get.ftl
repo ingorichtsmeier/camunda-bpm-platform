@@ -20,7 +20,7 @@
         dto = "CountResultDto"
         desc = "Request successful."
         examples = ['"example-1": {
-                       "summary": "GET `/deployment/count?name=deploymentName`",
+                       "summary": "GET /deployment/count?name=deploymentName",
                        "value": {
                          "count": 1
                        }
