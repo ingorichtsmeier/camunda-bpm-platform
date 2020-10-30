@@ -25,7 +25,7 @@
         array = true
         desc = "Request successful."
         examples = ['"example-1": {
-                       "summary": "GET `/deployments/someDeploymentId`",
+                       "summary": "GET /deployments/someDeploymentId",
                        "value": {
                          "id": "someDeploymentId",
                          "name": "deploymentName",
