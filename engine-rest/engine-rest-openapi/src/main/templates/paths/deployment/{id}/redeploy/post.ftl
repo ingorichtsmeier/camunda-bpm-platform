@@ -30,7 +30,7 @@
       mediaType = "application/json"
       dto = "RedeploymentDto"
       examples = ['"example-1": {
-                       "summary": "POST `/deployment/anDeploymentId/redeploy`",
+                       "summary": "POST /deployment/anDeploymentId/redeploy",
                        "value": {
                          "resourceIds": [ "aResourceId" ],
                          "resourceNames": [ "aResourceName" ],
@@ -45,7 +45,7 @@
         dto = "DeploymentWithDefinitionsDto"
         desc = "Request successful."
         examples = ['"example-1": {
-                       "summary": "Status 200 Response",
+                       "summary": "Successful redeployment",
                        "value": {
                          "links": [
                              {
