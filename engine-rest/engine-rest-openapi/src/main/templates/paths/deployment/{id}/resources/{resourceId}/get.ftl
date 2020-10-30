@@ -31,7 +31,7 @@
         dto = "DeploymentResourceDto"
         desc = "Request successful."
         examples = ['"example-1": {
-                       "summary": "GET `/deployments/someDeploymentId/resources/someResourceId`",
+                       "summary": "GET /deployments/someDeploymentId/resources/someResourceId",
                        "value": {
                           "id": "someResourceId",
                           "name": "someResourceName",
