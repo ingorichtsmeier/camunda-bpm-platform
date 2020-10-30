@@ -10,7 +10,7 @@
       mediaType = "application/json"
       dto = "FetchExternalTasksDto"
       examples = ['"example-1": {
-                       "summary": "POST /external-task/fetchAndLock (1)",
+                       "summary": "POST /external-task/fetchAndLock (with variable filtering)",
                        "description": "Request with variable filtering",
                        "value": {
                          "workerId": "aWorkerId",
@@ -28,7 +28,7 @@
                        }
                      }',
                     '"example-2": {
-                       "summary": "POST /external-task/fetchAndLock (2)",
+                       "summary": "POST /external-task/fetchAndLock (all variables)",
                        "description": "Request with all variables included",
                        "value": {
                          "workerId": "aWorkerId",
@@ -45,7 +45,7 @@
                        }
                      }',
                     '"example-3": {
-                      "summary": "POST /external-task/fetchAndLock (3)",
+                      "summary": "POST /external-task/fetchAndLock (with extension properties)",
                       "description": "Request with includeExtensionProperties",
                       "value": {
                         "workerId":"aWorkerId",
@@ -68,7 +68,7 @@
         array = true
         desc = "Request successful."
         examples = ['"example-1": {
-                       "summary": "POST /external-task/fetchAndLock (1)",
+                       "summary": "POST /external-task/fetchAndLock (with variables filtering)",
                        "description": "Request with variable filtering",
                        "value": [
                          {
@@ -122,7 +122,7 @@
                        ]
                      }',
                     '"example-2": {
-                       "summary": "POST /external-task/fetchAndLock (2)",
+                       "summary": "POST /external-task/fetchAndLock (all variables)",
                        "description": "Request with all variables included",
                        "value": [
                          {
@@ -178,7 +178,7 @@
                        ]
                      }',
                      '"example-3": {
-                       "summary": "POST /external-task/fetchAndLock (3)",
+                       "summary": "POST /external-task/fetchAndLock (with extension properties)",
                        "description": "Request with includeExtensionProperties",
                        "value":   [{
                          "activityId": "anActivityId",
