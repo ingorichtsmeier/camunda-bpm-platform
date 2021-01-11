@@ -144,7 +144,7 @@
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-client</artifactId>
-      <version>1.17</version>
+      <version>1.19.4</version>
       <scope>test</scope>
     </dependency>
 
