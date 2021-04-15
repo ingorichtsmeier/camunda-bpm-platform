@@ -92,7 +92,7 @@
     "grunt-protractor-runner": "5.0.0",
     "grunt-stylelint": "0.16.0",
     "karma": "4.0.1",
-    "karma-browserify": "6.0.0",
+    "karma-browserify": "6.1.0",
     "karma-chrome-launcher": "3.1.0",
     "karma-junit-reporter": "1.2.0",
     "karma-mocha": "2.0.1",
