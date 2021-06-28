@@ -105,7 +105,7 @@
     "mocha-multi": "1.0.1",
     "mocha-proshot": "1.0.1",
     "persistify": "2.0.1",
-    "prettier": "1.17.1",
+    "prettier": "2.3.2",
     "request": "2.88.0",
     "sinon": "7.3.1",
     "source-map": "0.7.3",
