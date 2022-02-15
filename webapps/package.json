@@ -37,7 +37,7 @@
     "angular-sanitize": "1.8.2",
     "angular-scenario": "1.8.2",
     "angular-touch": "1.8.2",
-    "angular-translate": "2.18.4",
+    "angular-translate": "2.19.0",
     "bootstrap": "3.4.1",
     "bpmn-font": "0.10.0",
     "bpmn-js": "9.0.0-subprocesses.3",
