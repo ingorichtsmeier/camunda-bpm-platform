@@ -44,11 +44,13 @@ import org.camunda.spin.Spin;
 import org.camunda.spin.SpinList;
 import org.camunda.spin.xml.SpinXmlElement;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.rules.RuleChain;
 
+@Ignore("XML data handling is removed from the external task client")
 public class XmlSerializationIT {
 
   protected static final String VARIABLE_NAME_XML = "xmlVariable";

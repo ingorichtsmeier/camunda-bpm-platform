@@ -1,5 +1,21 @@
 # Camunda External Task Client (Java)
 
+## This is a test branch for the external task client without xml handling
+
+It refers to the example in the camunda-consulting camunda-7-code-examples repository, 
+[snippet/external-task-client-without-xml](https://github.com/camunda-consulting/camunda-7-code-examples/tree/main/snippets/external-task-client-without-xml).
+
+This branch patches the external-task-client and removes the classes that refer to the jakarta namespace and are not available in Java EE 8 environment.
+
+In the [integration test](camunda-external-task-client/src/it/java), the tests to check the XML variable handling are disabled.
+
+The integration test suite, started as 
+
+```
+mvn clean verify
+```
+
+should run successfully.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.camunda.bpm/camunda-external-task-client/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.camunda.bpm/camunda-external-task-client)
 

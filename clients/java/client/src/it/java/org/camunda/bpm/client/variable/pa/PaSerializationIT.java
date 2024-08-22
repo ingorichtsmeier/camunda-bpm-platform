@@ -31,6 +31,7 @@ import org.camunda.bpm.engine.variable.value.ObjectValue;
 import org.camunda.qa.Bean;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.RuleChain;
@@ -130,6 +131,7 @@ public class PaSerializationIT {
     assertThat(processInstanceDto.getEndTime()).isNotNull();
   }
 
+  @Ignore("XML data handling is removed from the external task client")
   @Test
   public void shouldSelectSequenceFlowAndCompleteProcessInstance_XmlSerialization() {
     // given
